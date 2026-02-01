@@ -1,138 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>💘 Be My Valentine?</title>
+  <meta charset="UTF-8" />
+  <title>For Shreya 💖</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      overflow: hidden;
+      background: radial-gradient(circle at top, #ff9a9e, #ff3f6c);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .card {
-      background: white;
-      border-radius: 25px;
-      padding: 35px;
+    .container {
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(14px);
+      border-radius: 32px;
+      padding: 45px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      max-width: 350px;
-      animation: pop 0.8s ease;
+      max-width: 380px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+      animation: fadeIn 1.2s ease;
     }
 
-    @keyframes pop {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     img {
-      width: 220px;
-      border-radius: 20px;
-      margin-bottom: 20px;
+      width: 240px;
+      border-radius: 26px;
+      margin-bottom: 25px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.25);
     }
 
     h1 {
-      color: #ff4d6d;
-      font-size: 2rem;
-      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .name {
+      font-size: 2.6rem;
+      color: #ffe6eb;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
 
     button {
-      font-family: inherit;
       font-size: 1.1rem;
-      padding: 12px 30px;
+      padding: 14px 36px;
       border: none;
-      border-radius: 30px;
+      border-radius: 40px;
       cursor: pointer;
-      margin: 10px;
-      background: #ff4d6d;
+      background: linear-gradient(135deg, #ff4d6d, #ff758c);
       color: white;
-      transition: transform 0.2s;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     button:hover {
       transform: scale(1.1);
-    }
-
-    .no {
-      background: #999;
-      position: absolute;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.45);
     }
 
     .heart {
       position: absolute;
-      color: rgba(255,255,255,0.7);
-      font-size: 20px;
-      animation: float 6s linear infinite;
+      font-size: 18px;
+      animation: float 8s linear infinite;
+      opacity: 0.8;
     }
 
     @keyframes float {
-      from {
-        transform: translateY(100vh);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
+      from { transform: translateY(110vh); }
+      to { transform: translateY(-10vh); opacity: 0; }
     }
   </style>
 </head>
 
 <body>
 
-<div class="card" id="card">
-  <!-- Replace image URL with your own -->
-  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="love">
+<div class="container" id="box">
+  <!-- Cute online image (safe & aesthetic) -->
+  <img 
+    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+    alt="Cute couple illustration"
+  >
 
-  <h1>Will you be my Valentine? 💖</h1>
+  <h1>Dear <span class="name">Shreya</span>,</h1>
 
-  <button onclick="yesClicked()">Yes 😍</button>
-  <button class="no" onmouseover="moveNo()">No 🙈</button>
+  <p>
+    Some people walk into your life quietly…  
+    and suddenly, everything feels warmer 💕  
+  </p>
+
+  <h1>Will you be my Valentine? 💌</h1>
+
+  <button onclick="yes()">Yes ❤️</button>
 </div>
 
-<!-- Optional background music -->
-<audio id="music" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<!-- Soft romantic background music -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
 </audio>
 
 <script>
-  function yesClicked() {
+  function yes() {
     document.getElementById("music").play();
     document.body.innerHTML = `
-      <h1 style="color:white; text-align:center; font-size:3rem;">
-        YAYYYY!!! 💕🥰<br>
-        You just made me the happiest person ❤️
+      <h1 style="
+        color:white;
+        text-align:center;
+        font-family:'Playfair Display', serif;
+        font-size:3rem;
+        padding:20px;
+        animation: fadeIn 1s ease;
+      ">
+        Thank you for making this moment special, Shreya 💖<br><br>
+        Happy Valentine’s ❤️✨
       </h1>
     `;
   }
 
-  function moveNo() {
-    const btn = document.querySelector(".no");
-    btn.style.top = Math.random() * 80 + "vh";
-    btn.style.left = Math.random() * 80 + "vw";
-  }
-
-  // Floating hearts
+  // Floating hearts animation
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
-    heart.innerHTML = "💖";
+    heart.innerHTML = Math.random() > 0.5 ? "💖" : "💗";
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.fontSize = Math.random() * 26 + 14 + "px";
     document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-  }, 300);
+    setTimeout(() => heart.remove(), 8000);
+  }, 400);
 </script>
 
 </body>
