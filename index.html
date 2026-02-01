@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💘 Be My Valentine?</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Pacifico', cursive;
+    }
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      max-width: 350px;
+      animation: pop 0.8s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    img {
+      width: 220px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1.1rem;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      background: #ff4d6d;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .no {
+      background: #999;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+  <!-- Replace image URL with your own -->
+  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" alt="love">
+
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <button onclick="yesClicked()">Yes 😍</button>
+  <button class="no" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<!-- Optional background music -->
+<audio id="music" autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function yesClicked() {
+    document.getElementById("music").play();
+    document.body.innerHTML = `
+      <h1 style="color:white; text-align:center; font-size:3rem;">
+        YAYYYY!!! 💕🥰<br>
+        You just made me the happiest person ❤️
+      </h1>
+    `;
+  }
+
+  function moveNo() {
+    const btn = document.querySelector(".no");
+    btn.style.top = Math.random() * 80 + "vh";
+    btn.style.left = Math.random() * 80 + "vw";
+  }
+
+  // Floating hearts
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+</script>
+
+</body>
+</html>
